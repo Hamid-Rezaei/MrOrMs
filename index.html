@@ -10,35 +10,31 @@
   </head>
   <body>
     <div class="content">
-      <div class="question">
-        <div class="question-title">
-          <p class="title">Mr. or Ms.?</p>
-        </div>
+      <div class="column">
+          <h2>Mr. or Ms.?</h2>
         <div class="enter-name">
           <p>Name</p>
-          <input class="search-bar" type="text" />
+          <input class="search-bar" type="text", placeholder="Enter Name"/>
         </div>
-        <div class="gender-checkbox">
-          <div class="male">
-            <input class="maleinput" type="checkbox" />
-            <p>Male</p>
+        <div class="checkbox-group">
+          <div>
+            <input class="maleinput" type="checkbox" value="male"/>
+            <label for="maleinput">Male</label>
           </div>
 
-          <div class="female">
-            <input class="femaleinput" type="checkbox" />
-            <p>Female</p>
+          <div>
+            <input class="femaleinput" type="checkbox" value="female"/>
+            <label for="femaleinput">Female</label>
           </div>
         </div>
-        <div class="question-button">
-          <button class="submit">Submit</button>
-          <button class="save">Save</button>
+        <div class="button-group">
+          <button class="costum-button">Submit</button>
+          <button class="costum-button">Save</button>
         </div>
       </div>
 
-      <div class="answer">
-        <div class="prediction-title">
-          <p class="title">Prediction</p>
-        </div>
+      <div class="column">
+          <h2>Prediction</h2>
         <div calss="pre-answer">
           <p>male</p>
           <p>0.95</p>
@@ -46,9 +42,11 @@
 
         <div class="save-answer">
           <p>Saved Answer</p>
-          <button class="clear">Clear</button>
+          <button class="costum-button">Clear</button>
         </div>
       </div>
     </div>
+
+    <script src="scripts/index.js"></script>
   </body>
 </html>
