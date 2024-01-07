@@ -1,4 +1,21 @@
 /**
+ * Validates the selected gender checkboxes.
+ * @returns {boolean} - True if the gender is valid, false otherwise.
+ */
+function validateGender() {
+    if(!isMale && !isFemale && !predicted) {
+        error.innerText = "Please provide gender!";
+        return false;
+    }
+    if(isMale && isFemale) {
+        error.innerText = "Gender cannot be both male and female!";
+        return false;
+    }
+    error.innerText = ""
+    return true;
+}
+
+/**
  * Validates the provided name.
  * @param {string} name - The name to be validated.
  * @returns {boolean} - True if the name is valid, false otherwise.
@@ -19,11 +36,8 @@ function validateName(name) {
         return false;
     }
 
+    error.innerText = "";
     return true;
-}
-
-function dispalaySavedAnswer(){
-
 }
 
 /**
@@ -56,11 +70,13 @@ async function fetchPredictedAnswer(nameValue) {
         }
 
         const data = await response.json();
+        predicted = data['gender']
         dispalayPrediction(data);
 
     } catch (error) {
         error.innerText = 'Fetch error: ' + error;
     }
+    return null
 }
 
 /**
@@ -70,17 +86,36 @@ async function fetchPredictedAnswer(nameValue) {
 function handelSubmit() {
     const nameValue = enteredName.value.trim();
     if (validateName(nameValue)) {
-        error.innerText = "";
         fetchPredictedAnswer(nameValue);
+        displaySavedAnswer(nameValue)
     }
 }
 
-function handelSave() {
-    savedData.gender = gender;
-    savedData.probability = probability
+function displaySavedAnswer(name) {
+    let gender = getLocalStorage(name);
 
+    if (gender) {
+        savedAnswer.innerText = `${name} was saved as ${gender}`;
+    } else {
+        savedAnswer.innerText = `${name} has no saved gender information.`;
+    }
+}
+
+function saveLocalStorage(name, gender) {
+    localStorage.setItem(name, gender);
+}
+
+function getLocalStorage(name) {
+    return localStorage.getItem(name)
+}
+
+function handelSave() {
     const nameValue = enteredName.value.trim();
-    localStorage.setItem(nameValue, savedData);
+    if(validateName(nameValue) && validateGender()){
+        let gender = isMale ? "male" : isFemale ? "female" : predicted;    
+        saveLocalStorage(nameValue, gender);
+        displaySavedAnswer(nameValue);
+    }
 }
 
 function handelClear() {
@@ -88,15 +123,25 @@ function handelClear() {
 }
 
 
+function handleCheckboxChange(checkbox) {
+    if (checkbox.id === "male") {
+        isMale = checkbox.checked;
+    } else if (checkbox.id === "female") {
+        isFemale = checkbox.checked;
+    }
+}
 
+// Event listener values
+let isMale = false
+let isFemale = false
+
+let predicted = ""
 
 // Document elements
 const error = document.getElementById("error")
 const enteredName = document.getElementById("enteredName")
-const isMale = document.getElementById("male")
-const isFemale = document.getElementById("female")
 const predictedAnswer = document.getElementById("predicted-answer")
-const savedAnswer = document.getElementById("saved-answer")
+const savedAnswer = document.getElementById("seved-answer")
 
 // Data saved in localstorage
-const savedData = {gender: ""}
+const savedData = ""
