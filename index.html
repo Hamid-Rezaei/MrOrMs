@@ -11,42 +11,43 @@
   <body>
     <div class="content">
       <div class="column">
-          <h2>Mr. or Ms.?</h2>
+        <h2>Mr. or Ms.?</h2>
         <div class="enter-name">
           <p>Name</p>
-          <input class="search-bar" type="text", placeholder="Enter Name"/>
+          <input class="search-bar" type="text" , placeholder="Enter Name" id="enteredName"/>
         </div>
         <div class="checkbox-group">
           <div>
-            <input class="maleinput" type="checkbox" value="male"/>
+            <input class="maleinput" type="checkbox" value="male" id="male"/>
             <label for="maleinput">Male</label>
           </div>
 
           <div>
-            <input class="femaleinput" type="checkbox" value="female"/>
+            <input class="femaleinput" type="checkbox" value="female" id="female"/>
             <label for="femaleinput">Female</label>
           </div>
         </div>
         <div class="button-group">
-          <button class="costum-button">Submit</button>
-          <button class="costum-button">Save</button>
-        </div>
+          <button onclick="handelSubmit()" class="costum-button">Submit</button>
+          <button onclick="handelSave()" class="costum-button">Save</button>
+        </div>  
+        <p class="error" id="error"></p>
       </div>
 
       <div class="column">
-          <h2>Prediction</h2>
+        <h2>Prediction</h2>
         <div calss="pre-answer">
-          <p>male</p>
-          <p>0.95</p>
+          <p id="predicted-answer"></p>
         </div>
 
         <div class="save-answer">
           <p>Saved Answer</p>
-          <button class="costum-button">Clear</button>
+          <p id="seved-answer"></p>
+          <button onclick="handelClear()" class="costum-button">Clear</button>
         </div>
       </div>
     </div>
 
-    <script src="scripts/index.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

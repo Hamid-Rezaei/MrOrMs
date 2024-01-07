@@ -103,3 +103,11 @@ p {
     flex-direction: column;
     border-top: 1px solid #e58556;
 }
+
+.error {
+    display: flex;
+    width: 150px;
+    background-color: rgb(248, 149, 142);
+    font-size: 18;
+    text-align: center;
+}
