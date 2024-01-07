@@ -9,6 +9,11 @@ body {
     height: 100vh;
 }
 
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
 .content {
     height: 400px;
     width: 600px;
@@ -95,17 +100,51 @@ body {
     padding-bottom: 10px;
 }
 
+.maleinput,
+.femaleinput {
+    margin-right: 10px;
+    accent-color: #e8b491;
+}
+
 .submit {
     margin-top: 5px;
     width: 70px;
     height: 30px;
-    background-color: #c1a39a;
     border-width: 0;
+    background-color:#e8b491;
 }
+
 .save {
     margin-top: 15px;
     width: 70px;
     height: 30px;
-    background-color: #c1a39a;
     border-width: 0;
+    background-color:#e8b491;
+}
+
+.prediction-title {
+    text-align: center;
+    flex: 1;
+}
+
+.pre-answer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.save-answer {
+    flex: 2;
+    display: flex;
+    max-width: 150px;
+    flex-direction: column;
+    border-top: 1px solid #e58556;
+}
+
+.clear {
+    margin-top: 15px;
+    width: 70px;
+    height: 30px;
+    border-width: 0;
+    background-color:#e8b491;    
 }
