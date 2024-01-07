@@ -15,17 +15,17 @@ body {
     border-radius: 100px;
     border-width: 1px;
     border-style: solid;
-    border-color: gray;
-
+    border-color: #e58556;
+    background: linear-gradient(rgba(255, 255, 255, 0), #ffc789, rgba(255, 255, 255, 0));
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    overflow: hidden; 
 }
 
 .question {
     height: 100%;
-    background-color: aquamarine;
     flex: 1;
     align-items: center;
     display: flex;
@@ -36,7 +36,6 @@ body {
 
 .answer {
     height: 100%;
-    background-color: burlywood;
     flex: 1;
     align-items: center;
     display: flex;
@@ -44,12 +43,69 @@ body {
     align-items: center;
 }
 
-.question-title {
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.question-title{
     text-align: center;
 }
 
 .enter-name {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    flex: 1;
 }
 
+.search-bar {
+    margin-top: 5px; /* Add space between Name and the search bar */
+    margin-left: 15px;
+    height: 30px;
+    border-style: solid;
+    border-color: #e58556;
+    border-radius: 15px;
+    border-width: 1.75px;
+    background-color: #f6c89a;
+}
+
+.gender-checkbox {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.male {
+    display: flex;
+    flex-direction: row;
+}
+
+.female {
+    display: flex;
+    flex-direction: row;
+}
+
+.question-button {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons vertically */
+    padding-bottom: 10px;
+}
+
+.submit {
+    margin-top: 5px;
+    width: 70px;
+    height: 30px;
+    background-color: #c1a39a;
+    border-width: 0;
+}
+.save {
+    margin-top: 15px;
+    width: 70px;
+    height: 30px;
+    background-color: #c1a39a;
+    border-width: 0;
+}
