@@ -1,6 +1,6 @@
 /* Here in body I set background image for website */
 body {
-    background-image: url('/assets/background.jpg');
+    background-image: url('assets/background.jpg');
     background-size: cover; 
     display: flex;
     justify-content: center;
