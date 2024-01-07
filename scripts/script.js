@@ -91,6 +91,10 @@ function handelSubmit() {
     }
 }
 
+/**
+ * Displays the saved answer for the provided name.
+ * @param {string} name - The name for which the saved answer is displayed.
+ */
 function displaySavedAnswer(name) {
     let gender = getLocalStorage(name);
 
@@ -101,14 +105,37 @@ function displaySavedAnswer(name) {
     }
 }
 
+
+/**
+ * Saves the gender information for the provided name to local storage.
+ * @param {string} name - The name for which gender information is saved.
+ * @param {string} gender - The gender information to be saved.
+ */
 function saveLocalStorage(name, gender) {
     localStorage.setItem(name, gender);
 }
 
+/**
+ * Retrieves the saved gender information for the provided name from local storage.
+ * @param {string} name - The name for which gender information is retrieved.
+ * @returns {string | null} - The saved gender information or null if not found.
+ */
 function getLocalStorage(name) {
     return localStorage.getItem(name)
 }
 
+/**
+ * Removes the specified item from local storage.
+ * @param {string} name - The key (name) of the item to be removed from local storage.
+ */
+function removeLocalStorage(name) {
+    localStorage.removeItem(name);
+}
+
+/**
+ * Handles the save button click event.
+ * Validates the name, validates the gender, saves the information to local storage, and displays the saved answer.
+ */
 function handelSave() {
     const nameValue = enteredName.value.trim();
     if(validateName(nameValue) && validateGender()){
@@ -118,11 +145,24 @@ function handelSave() {
     }
 }
 
+/**
+ * Handles the clear action.
+ * Removes the saved gender information from local storage for the provided name.
+ * @param {string} nameValue - The trimmed name value to clear from local storage.
+ */
 function handelClear() {
-    
+    const nameValue = enteredName.value.trim();
+    if(validateName(nameValue)){
+        removeLocalStorage(nameValue);
+        displaySavedAnswer(nameValue);
+    }
 }
 
-
+/**
+ * Handles the change event for checkboxes.
+ * Updates the corresponding gender variable based on the checkbox state.
+ * @param {HTMLInputElement} checkbox - The checkbox element that triggered the change event.
+ */
 function handleCheckboxChange(checkbox) {
     if (checkbox.id === "male") {
         isMale = checkbox.checked;
@@ -142,6 +182,3 @@ const error = document.getElementById("error")
 const enteredName = document.getElementById("enteredName")
 const predictedAnswer = document.getElementById("predicted-answer")
 const savedAnswer = document.getElementById("seved-answer")
-
-// Data saved in localstorage
-const savedData = ""
