@@ -5,5 +5,51 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+.content {
+    height: 400px;
+    width: 600px;
+    border-radius: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.question {
+    height: 100%;
+    background-color: aquamarine;
+    flex: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.answer {
+    height: 100%;
+    background-color: burlywood;
+    flex: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-title {
+    text-align: center;
+}
+
+.enter-name {
+    display: flex;
+    flex-direction: row;
 }
 
